@@ -1,0 +1,59 @@
+The Student Task (Step-by-Step)
+1. Load the Data
+
+Run src/load_data.py (or the first cell in the notebook) to load the 10 titles and their corresponding long-text documents.
+
+Confirm that 10 documents are loaded and check the word count for each.
+
+2. Build the TF-IDF Matrix
+
+Import TfidfVectorizer from scikit-learn.
+
+Fit it on the documents using stop_words="english" to remove common English words.
+
+Print the shape of the resulting matrix (expected: (10, n_unique_terms)) and the vocabulary size.
+
+3. Inspect the Matrix as a DataFrame
+
+Convert the sparse TF-IDF matrix into a pandas DataFrame with document titles as the index and terms as columns.
+
+Print a sample of the matrix (e.g., the first 3 documents × 10 terms).
+
+For each document, print the top-5 TF-IDF terms (the terms with the highest scores), which act as a summary of that document.
+
+4. Query Similarity Challenge
+
+Define a function that takes a query string, transforms it using the same vectorizer, and computes cosine similarity against all 10 documents.
+
+Rank the documents by similarity score in descending order.
+
+Run the function on three predefined queries and observe which documents rank highest:
+
+"renewable energy and climate policy" → should rank Climate Change first.
+
+"password security and phishing" → should rank Cybersecurity first.
+
+"healthy sleep exercise and diet" → should rank Public Health first.
+
+5. Optional Challenge (for fast finishers)
+
+Re-run the vectorizer with additional parameters:
+
+python
+TfidfVectorizer(
+    stop_words="english",
+    ngram_range=(1, 2),
+    max_df=0.8,
+    min_df=2
+)
+Compare the vocabulary size and the top terms. Do bigrams make the terms more meaningful?
+
+6. Verify Their Work
+
+Run the provided unit tests with pytest -q. The tests check that:
+
+10 documents are loaded and each is "long text" (>30 words).
+
+The TF-IDF matrix has 10 rows and a column count equal to the vocabulary size.
+
+The query "renewable energy and climate policy" ranks Climate Change first.

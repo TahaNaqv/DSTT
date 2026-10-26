@@ -1,0 +1,210 @@
+UCI Adult Income Dataset — Data Ingestion, Wrangling, Cleaning & Preprocessing MS Data Science — Data Science Tools & Techniques 
+Programming: Python, Pandas, NumPy, Scikit-learn 
+1. Activity Scenario: Can We Trust Our Data? 
+You have joined a data-science team working for a government analytics organization. The organization wants to  develop a system that can identify individuals who are likely to have an annual income above $50,000. The  system may eventually be used to understand income patterns, design economic programs, identify groups  requiring financial support, and perform socioeconomic analysis. 
+You have been given the UCI Adult Income dataset collected from census data. However, the data is not ready for  analysis. Your responsibility is NOT simply to train a machine-learning model. Your responsibility is to  determine whether the data can be trusted for downstream analysis. 
+2. Dataset 
+Use the UCI Adult dataset: https://archive.ics.uci.edu/dataset/2/adult 
+The dataset contains demographic and employment-related attributes and a target indicating whether annual  income is above or below $50K. 
+3. Rules of the Activity 
+• Do not begin by blindly applying a standard preprocessing recipe. 
+• First investigate the dataset and identify problems. 
+• Every important cleaning decision must be supported by evidence. 
+• For each decision, record: Problem → Evidence → Action → Justification. 
+• Distinguish an unusual observation from an erroneous observation. 
+• Be alert to data leakage when preparing data for downstream machine learning. 
+• Your notebook should be reproducible and clearly documented. 
+4. Task 1 — Data Ingestion 
+Load the Adult dataset into a Pandas DataFrame. You may use the UCI repository or the ucimlrepo package. 
+1. How many observations and variables are present? 
+2. Which variable is the target? 
+3. Which variables are numerical and which are categorical? 
+4. What do the first 5–10 records look like? 
+5. Are the data types appropriate for analysis? 
+5. Task 2 — Find the Problems Before Cleaning 
+Do NOT clean the data yet. Use profiling, descriptive statistics, value counts, and appropriate visualizations. • Inspect the dataset structure using info(), describe(), and related functions. 
+• Calculate missing values for every column. 
+• Inspect unique values and frequency distributions of categorical variables. 
+• Look for unusual or inconsistent representations of missing values. 
+• Check for duplicate records. 
+• Inspect numerical variables for suspicious values and potential outliers. 
+• Examine the distribution of the target variable.
+6. Task 3 — Missing-Value Investigation 
+Investigate whether missing values are represented using conventional NaN values or another representation (for  example, a special symbol). 
+6. Run a conventional missing-value check. Do the results look reasonable? 
+7. Inspect categorical values and identify possible placeholders for missing data. 
+8. Convert genuine missing-value placeholders to NaN. 
+9. Recalculate missing-value counts. 
+10. Determine how many records contain at least one missing value. 
+Situation: 
+Your project manager says: "Just delete all rows containing missing values. It is the easiest solution." Do you  agree? Investigate the evidence before deciding. 
+• What percentage of rows contain missing values? 
+• Compare the target distribution among rows with missing values and rows without missing values. • Would deleting all incomplete rows potentially change the population represented by the dataset? • Choose a missing-data strategy and justify it. 
+7. Task 4 — Target Distribution 
+11. Calculate the frequency and percentage of each target class. 
+12. Determine whether the target is balanced or imbalanced. 
+8. Task 5 — Categorical Data Consistency 
+Investigate categorical columns for leading/trailing spaces, inconsistent formatting, unexpected categories, rare  categories, and other anomalies. 
+13. Generate value counts for the categorical variables. 
+14. Identify formatting inconsistencies. 
+15. Apply appropriate standardization. 
+16. Recheck the unique values after cleaning. 
+9. Task 6 — Duplicate Records 
+17. Count duplicate rows. 
+18. Inspect examples of duplicate records. 
+19. Determine whether duplicates are necessarily errors. 
+20. Decide whether to remove them and explain your reasoning. 
+10. Task 7 — Outlier Investigation 
+Inspect numerical variables such as age, capital-gain, capital-loss, hours-per-week, and fnlwgt using descriptive  statistics and suitable visualizations. 
+Thoughtful situation: 
+You discover observations with unusually high hours-per-week. A colleague says: "These are outliers, so delete  them." Do you agree? 
+• Identify potentially unusual observations.
+• Determine whether there is evidence that they are erroneous. 
+• Explain the difference between an outlier and an error. 
+• Decide whether to remove, retain, cap, transform, or otherwise handle the observations. 
+11. Task 8 — Develop Your Own Preprocessing Policy 
+Complete the following decision table in your notebook. Do not copy a generic preprocessing recipe; your  decisions should be based on evidence from this dataset. 
+Issue 
+Evidence 
+Decision / Action 
+Justification
+Missing workclass
+
+
+
+
+
+
+Missing occupation
+
+
+
+
+
+
+Missing native-country
+
+
+
+
+
+
+Special missing-value  symbols
+
+
+
+
+
+
+Whitespace / formatting  inconsistencies
+
+
+
+
+
+
+Duplicate rows
+
+
+
+
+
+
+Potential outliers
+
+
+
+
+
+
+Categorical variables
+
+
+
+
+
+
+Numerical variables
+
+
+
+
+
+
+Target encoding
+
+
+
+
+
+
+Potentially redundant  variables
+
+
+
+
+
+
+
+
+
+12. Task 9 — Build a Professional Preprocessing Pipeline Implement a reproducible preprocessing workflow using scikit-learn. Your pipeline should appropriately handle  numerical and categorical variables. 
+21. Separate features (X) and target (y). 
+22. Encode the target appropriately. 
+23. Identify numerical and categorical feature sets. 
+24. Use an appropriate imputation strategy for numerical variables. 
+25. Use an appropriate imputation strategy for categorical variables. 
+26. Encode categorical variables using an appropriate method. 
+27. Scale numerical variables where appropriate. 
+28. Use ColumnTransformer and Pipeline so that preprocessing is reproducible. 
+29. Configure categorical encoding so that previously unseen categories do not cause unnecessary failure. 
+13. Task 10 — Before vs. After Data Quality Report 
+Create a summary table comparing the dataset before and after your cleaning/preprocessing decisions.
+Metric 
+Before Cleaning 
+After Cleaning
+Number of rows
+
+
+
+
+Number of columns
+
+
+
+
+Missing values
+
+
+
+
+Duplicate rows
+
+
+
+
+Numerical variables
+
+
+
+
+Categorical variables
+
+
+
+
+Target distribution
+
+
+
+
+
+
+
+14. Submission Requirements 
+• Submit one Jupyter Notebook (.ipynb). 
+• All code cells must be executable and clearly organized. 
+• Include short explanations before/after major code sections. 
+• Every important preprocessing decision must include evidence and justification. • Include the Before vs. After Data Quality Report. 
+• Include the final reflection answers. 
+• Do not simply copy a standard preprocessing workflow; demonstrate analytical reasoning.

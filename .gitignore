@@ -1,3 +1,10 @@
 # Large datasets excluded from GitHub
 Assignment-1/data/census-income.data
 Research-Proposal/elliptic_bitcoin_dataset/elliptic_txs_features.csv
+
+# Course project: dataset (CC BY-NC-ND, 1.6 GB) and separate project repo
+Elliptic++ Dataset/
+kg-bitcoin-aml/
+# Separate git repositories (each has its own remote)
+mapreduce_hdfs_hadoop_repo/
+textanalysis_tfidf/
